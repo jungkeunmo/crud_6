@@ -2,7 +2,10 @@ extends ../layouts/base.pug
 
 block content
     section.search 
-        form(action="#" method="get")
+        form(action="/" method="get")
+            select(name="seq")
+                option(value="title") 제목
+                option(value="author") 작가
             input(type="text" name="searchValue" placeholder="검색하기..")
             input(type="submit" value="Search")
 
