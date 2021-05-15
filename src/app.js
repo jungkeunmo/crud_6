@@ -3,11 +3,12 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import connect from "../db";
+import globalRouter from "./routers/globalRouter";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 dotenv.config();
-import Book from "./models/Book";
-import Author from "./models/Author";
+//import Book from "./models/Book";
+//mport Author from "./models/Author";
 
 const PORT = process.env.PORT;
 const app = express();
@@ -20,25 +21,27 @@ app.use(morgan(`dev`));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const allBook = async () => {
-    const books = await Book.find().populate({
-        path : `author`,
-        model : Author,
-    });
+//const allBook = async () => {
+    //const books = await Book.find().populate({
+        //path : `author`,
+        //model : Author,
+    //});
 
-    console.log(books);
-};
+    //console.log(books);
+//};
 
-const allAuthor = async()=> {
-    const author = await Author.find().populate({
-        path : `books`,
-        model : Book,
-    });
+//const allAuthor = async()=> {
+    //const author = await Author.find().populate({
+        //path : `books`,
+        //model : Book,
+    //});
 
-    console.log(author);
-};
+    //console.log(author);
+//};
 
-allAuthor();
+//allAuthor();
+
+app.use("/", globalRouter);
 
 app.listen(PORT, () => {
     console.log(`SERVER START🙃, http://localhost:${PORT}`);

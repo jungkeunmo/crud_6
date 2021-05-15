@@ -1,0 +1,24 @@
+extends ../layouts/base.pug
+
+block content
+    section.search 
+        form(action="#" method="get")
+            input(type="text" name="searchValue" placeholder="검색하기..")
+            input(type="submit" value="Search")
+
+    section.bookList 
+        ul 
+            li 번호
+            li 제목
+            li 위치
+            li 작가
+            li 금액
+
+    section.bookDataList  
+        each book in books
+            ul 
+                li 1
+                li #{book.title}
+                li #{book.location}
+                li #{book.author.name}
+                li #{book.price}원    
