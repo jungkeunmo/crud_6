@@ -1,0 +1,23 @@
+@import "./reset.css";
+@import "./adminSide.css";
+
+.adminMain {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.adminMain__side {
+  width: 240px;
+  height: 100%;
+  background-color: rgb(94, 89, 89);
+  color: #fff;
+}
+
+.adminMain__view {
+  width: calc(100% - 240px);
+  height: 100%;
+  overflow-y: scroll;
+  padding: 30px;
+}

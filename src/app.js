@@ -4,6 +4,7 @@ import morgan from "morgan";
 import path from "path";
 import connect from "../db";
 import globalRouter from "./routers/globalRouter";
+import adminRouter from "./routers/adminRouter";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 dotenv.config();
@@ -42,6 +43,7 @@ app.use(bodyParser.json());
 //allAuthor();
 
 app.use("/", globalRouter);
+app.use("/admin", adminRouter);
 
 app.listen(PORT, () => {
     console.log(`SERVER START🙃, http://localhost:${PORT}`);
