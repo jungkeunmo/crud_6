@@ -1,4 +1,21 @@
 extends ../layouts/adminbase.pug
 
 block content
-    h1 dsfasdf
+    .text 도서게시판
+    section.authorTable 
+        div 작가명
+        div 성별
+        div 소속사
+        div 보유한 책수
+        div 보유한 책 보러가기
+    each author in authorList    
+        section.authorTableData  
+            div #{author.name}
+            div #{author.gender}
+            div #{author.belong}
+            div #{author.books.length}개
+            div.bookArea
+                a(onclick="bookDetailHandler(\"" + author._id + "\")") 돋보기
+                div(id=author._id).bookArea__box
+                    each b in author.books 
+                        p #{b.title}

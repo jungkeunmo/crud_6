@@ -1,9 +1,18 @@
-import Book from "../models/Book";
 import Author from "../models/Author";
+import Book from "../models/Book";
 
-export const authorViewController = (req, res) => {
-    res.render("screens/authorView")
-} 
+//author
+export const authorViewController = async (req, res) => {
+    try{
+        const result = await Author.find().populate({
+            path:  `books`,
+            model: Book,
+        });
+        res.render("screens/authorView", { authorList: result });
+    } catch(e) {
+        console.log(e);
+    }
+}; 
 
 export const authorDetailController = (req, res) => {
     res.render("screens/authorDetail")
@@ -13,6 +22,7 @@ export const authorCreateController = (req, res) => {
     res.render("screens/authorCreate")
 } 
 
+//book
 export const bookViewController = (req, res) => {
     res.render("screens/bookView")
 } 
@@ -27,15 +37,15 @@ export const bookCreateController = (req, res) => {
 
 export const postAuthorCreateController = async (req, res) => {
     const {
-        body: { authorBelong, authorBirth, authorName, authorGender },
+        body: { authorName, authorBirth, authorBelong, authorGender },
     } = req;
 
     try {
         const result = await Author.create({
             name: authorName,
             birth: authorBirth,
-            gender: authorGender,
             belong: authorBelong,
+            gender: authorGender,
         });
         authorCreateController(req, res);
         

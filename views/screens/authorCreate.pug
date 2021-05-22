@@ -1,7 +1,7 @@
 extends ../layouts/adminbase.pug
 
 block content
-    form(action="/admin/postCreateAuthor" method="post")
+    form(action="/admin/postCreateAuthor" method="POST")
         div 
             label(for="authorName") 작가명
             input(type="text" id="authorName" name="authorName" placeholder="작가명을 입력하새요..")
@@ -14,7 +14,7 @@ block content
         div 
             label(for="authorGender") 성별
             select(id="authorGender" name="authorGender")       
-                option(value="남성" selected) 남성 
+                option(value="남성" select) 남성 
                 option(value="여성") 여성
         button 추가하기    
 
