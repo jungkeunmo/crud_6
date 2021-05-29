@@ -1,7 +1,7 @@
 extends ../layouts/adminbase.pug
 
 block content
-    .text 도서게시판
+    .text 작가 리스트
     section.authorTable 
         div 작가명
         div 성별
@@ -15,7 +15,7 @@ block content
             div #{author.belong}
             div #{author.books.length}개
             div.bookArea
-                a(onclick="bookDetailHandler(\"" + author._id + "\")") 돋보기
+                button(onclick="bookDetailHandler(\"" + author._id + "\")") 돋보기
                 div(id=author._id).bookArea__box
                     each b in author.books 
                         p #{b.title}

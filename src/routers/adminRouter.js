@@ -6,7 +6,7 @@ import {
     bookViewController,
     bookCreateController,
     bookDetailController,
-    postAuthorCreateController,
+    postCreateAuthorController,
 
 } from "../controllers/adminController";
 
@@ -17,7 +17,7 @@ adminRouter.get("/authorManagement", authorViewController);
 adminRouter.get("/authorManagement/create", authorCreateController);
 adminRouter.get("/authorManagement/:id", authorDetailController);
 
-adminRouter.post("/postCreateAuthor", postAuthorCreateController);
+adminRouter.post("/postCreateAuthor", postCreateAuthorController);
 
 //book
 adminRouter.get("/bookManagement", bookViewController);

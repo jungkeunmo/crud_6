@@ -8,34 +8,35 @@ export const authorViewController = async (req, res) => {
             path:  `books`,
             model: Book,
         });
+        console.log(result);
         res.render("screens/authorView", { authorList: result });
     } catch(e) {
         console.log(e);
     }
 }; 
 
-export const authorDetailController = (req, res) => {
-    res.render("screens/authorDetail")
-} 
-
 export const authorCreateController = (req, res) => {
-    res.render("screens/authorCreate")
-} 
+    res.render("screens/authorCreate");
+};
+
+export const authorDetailController = (req, res) => {
+    res.render("screens/authorDetail");
+}; 
 
 //book
 export const bookViewController = (req, res) => {
-    res.render("screens/bookView")
-} 
-
-export const bookDetailController = (req, res) => {
-    res.render("screens/bookDetail")
-} 
+    res.render("screens/bookView");
+}; 
 
 export const bookCreateController = (req, res) => {
-    res.render("screens/bookCreate")
-} 
+    res.render("screens/bookCreate");
+}; 
 
-export const postAuthorCreateController = async (req, res) => {
+export const bookDetailController = (req, res) => {
+    res.render("screens/bookDetail");
+}; 
+
+export const postCreateAuthorController = async (req, res) => {
     const {
         body: { authorName, authorBirth, authorBelong, authorGender },
     } = req;
